@@ -10,7 +10,9 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<title>Home画面</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<title>buyItemConfirm画面</title>
 
 <style type="text/css">
 body {
@@ -53,12 +55,13 @@ table {
 	background-color: black;
 	clear: both;
 }
-
-#text-center {
-	display: inline-block;
-	text-align: center;
-}
 </style>
+<script type="text/javascript">
+	function sumbmitAction(url) {
+		$('form').attr('action', url);
+		$('form').submit();
+	}
+</script>
 </head>
 <body>
 	<div id="header">
@@ -66,17 +69,45 @@ table {
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>Home</p>
+			<p>BuyItem</p>
 		</div>
-		<div id="text-center">
-			<s:form action="HomeAction">
-				<s:submit value="商品購入" />
+		<div>
+			<s:form>
+				<tr>
+					<td>商品名</td>
+					<td><s:property value="session.buyItem_name" /></td>
+				</tr>
+				<tr>
+					<td>値段</td>
+					<td><s:property value="session.total_price" /> <span>円</span>
+					</td>
+				</tr>
+				<tr>
+					<td>購入個数</td>
+					<td><s:property value="session.count" /><span>個</span></td>
+				</tr>
+				<tr>
+					<td>支払い方法</td>
+					<td><s:property value="session.pay" /></td>
+				</tr>
+				<tr>
+				</tr>
+				<td><br></td>
+				<tr>
+					<td><input type="button" value="戻る"
+						onclick="submitAction('HomeAction')" /></td>
+					<td><input type="button" value="完了"
+						onclick="submitAction('BuyItemConfirmAction')" /></td>
+				</tr>
 			</s:form>
-			<s:if test="#session.login_user_id!=null">
-				<p>
-					ログアウトする場合は <a href='<s:url action="LogoutAction"/>'>こちら</a>
-				</p>
-			</s:if>
+		</div>
+		<div>
+			<p>
+				前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>''>こちら</a>
+			</p>
+			<p>
+				マイページは<a href='<s:url action="MyPageAction"/>''>こちら</a>
+			</p>
 		</div>
 	</div>
 	<div id="footer">
