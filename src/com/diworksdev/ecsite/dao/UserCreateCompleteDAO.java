@@ -5,8 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.diworksdev.ecsite.util.DBConnector;
-
-import freemarker.template.utility.DateUtil;
+import com.diworksdev.ecsite.util.DateUtil;
 
 public class UserCreateCompleteDAO {
 
