@@ -1,6 +1,5 @@
 package com.diworksdev.ecsite.dao;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -9,9 +8,8 @@ import com.diworksdev.ecsite.util.DBConnector;
 import com.diworksdev.ecsite.util.DateUtil;
 
 public class BuyItemCompleteDAO {
-	
 
-	public void buyItemInfo(String item_transaction_id, String user_master_id, String total_price, String total_count,
+	public void buyItemInfo(String item_transaction_id, String total_price, String total_count, String user_master_id,
 			String pay) throws SQLException {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();

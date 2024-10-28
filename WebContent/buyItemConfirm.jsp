@@ -57,7 +57,7 @@ table {
 }
 </style>
 <script type="text/javascript">
-	function sumbmitAction(url) {
+	function submitAction(url) {
 		$('form').attr('action', url);
 		$('form').submit();
 	}
