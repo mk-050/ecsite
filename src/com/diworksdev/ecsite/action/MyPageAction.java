@@ -10,6 +10,7 @@ import com.diworksdev.ecsite.dao.MyPageDAO;
 import com.diworksdev.ecsite.dto.MyPageDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
+
 public class MyPageAction extends ActionSupport implements SessionAware {
 	public Map<String, Object> session;
 	private MyPageDAO dao = new MyPageDAO();
