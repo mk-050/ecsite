@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class BuyItemAction extends ActionSupport implements SessionAware {
 
 	public Map<String, Object> session;
-   private int count;
+	private int count;
 	private String pay;
 
 	public String execute() {
@@ -30,22 +30,15 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		return result;
 	}
 
-	public int getCoount() {
-		return count;
-	}
-
 	public void setCount(int count) {
 		this.count = count;
-	}
-
-	public String getPay() {
-		return pay;
 	}
 
 	public void setPay(String pay) {
 		this.pay = pay;
 	}
 
+	@Override
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}

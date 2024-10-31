@@ -10,7 +10,6 @@ import com.diworksdev.ecsite.dao.MyPageDAO;
 import com.diworksdev.ecsite.dto.MyPageDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-
 public class MyPageAction extends ActionSupport implements SessionAware {
 	public Map<String, Object> session;
 	private MyPageDAO dao = new MyPageDAO();
@@ -20,7 +19,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException {
 
-		if (!session.containsKey("loguin_user_id")) {
+		if (!session.containsKey("login_user_id")) {
 			return ERROR;
 		}
 
@@ -28,7 +27,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 			String item_transaction_id = session.get("id").toString();
 			String user_master_id = session.get("login_user_id").toString();
 
-			myPageList=dao.getMyPageUserInfo(item_transaction_id, user_master_id);
+			myPageList = dao.getMyPageUserInfo(item_transaction_id, user_master_id);
 
 		} else if (deleteFlg.equals("1")) {
 			delete();
@@ -45,7 +44,7 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 		int res = dao.buyItemHistoryDelete(item_transaction_id, user_master_id);
 
 		if (res > 0) {
-			myPageList=null;
+			myPageList = null;
 			setMessage("商品情報を正しく削除しました。");
 
 		} else if (res == 0) {
@@ -65,8 +64,6 @@ public class MyPageAction extends ActionSupport implements SessionAware {
 	public ArrayList<MyPageDTO> getMyPageList() {
 		return this.myPageList;
 	}
-
-
 
 	public String getMessage() {
 		return this.message;

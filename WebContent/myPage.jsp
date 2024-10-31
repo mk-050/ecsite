@@ -72,7 +72,9 @@ table {
 			<s:if test="myPageList==null">
 				<h3>ご購入情報はありません。</h3>
 			</s:if>
-			<s:elseif test="message==null'">
+
+
+			<s:elseif test="message==nulll">
 				<h3>ご購入情報は以下になります。</h3>
 				<table border="1">
 					<tr>
@@ -84,8 +86,7 @@ table {
 					</tr>
 					<s:iterator value="myPageList">
 						<tr>
-							<td>商品名</td>
-							<td><s:property value="itenName" /></td>
+							<td><s:property value="itemName" /></td>
 							<td><s:property value="totalPrice" /> <span>円</span>
 							<td><s:property value="totalCount" /><span>個</span></td>
 							<td><s:property value="payment" /></td>
@@ -98,6 +99,7 @@ table {
 					<s:submit value="削除" method="delete" />
 				</s:form>
 			</s:elseif>
+
 			<s:if test="message != null">
 				<h3>
 					<s:property value="message" />
